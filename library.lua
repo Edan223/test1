@@ -1335,8 +1335,6 @@ function Library:SetTheme(accent, background, text)
     self.theme.accent = accent or self.theme.accent
     self.theme.background = background or self.theme.background
     self.theme.text = text or self.theme.text
-    
-    notify("Theme Updated", "Matcha UI", 2)
 end
 
 -- Return Library with all classes
@@ -1352,4 +1350,9 @@ Library.KeyPicker = KeyPicker
 Library.TabBox = TabBox
 Library.Element = Element
 
-return Library
+-- Ensure proper export for loadstring
+local function Init()
+    return Library
+end
+
+return Init()
